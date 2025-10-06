@@ -1,3 +1,5 @@
+const { MinPriorityQueue } = require('@datastructures-js/priority-queue');
+
 function mincost(arr)
 { 
 	//write your code here
