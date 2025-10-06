@@ -1,25 +1,16 @@
-const { MinPriorityQueue } = require('@datastructures-js/priority-queue');
-
 function mincost(arr)
 { 
 	//write your code here
-	const heap = new MinPriorityQueue();
-    arr.forEach(length => heap.enqueue(length));
-  
-    let totalCost = 0;
-  
-    while (heap.size() > 1) 
-	{
-        const rope1 = heap.dequeue().element;
-        const rope2 = heap.dequeue().element;
-      
-        const cost = rope1 + rope2;
-        totalCost += cost;
-		
-        heap.enqueue(cost);
-    }
+	let totalCost = 0;
+	while(arr.length > 1) {
+		arr.sort();
+		let a = arr.shift();
+		let b = arr.shift();
+		totalCost += (a + b);
+		arr.push(a + b);
+	}
 
-    return totalCost;
+	return totalCost;
 }
 
 module.exports=mincost;
